@@ -8,22 +8,13 @@ public class AddEvenValuesAtTheEnd implements Consumer<List<Integer>> {
     List<Integer> evenValues;
     @Override
     public void accept(List<Integer> integers) {
-        evenValues = new ArrayList<>();
-        evenValues.addAll(integers);
+        List<Integer> list = new ArrayList<>();
         for (Integer num: integers) {
-            if(num % 2 == 0) {
-                evenValues.add(num);
+            if (num % 2 == 0) {
+                list.add(num);
             }
         }
+        integers.addAll(list);
 
-    }
-
-    @Override
-    public Consumer<List<Integer>> andThen(Consumer<? super List<Integer>> after) {
-        return (List<Integer> integers) -> { accept(evenValues); after.accept(integers); };
-    }
-
-    public AddEvenValuesAtTheEnd() {
-        super();
     }
 }

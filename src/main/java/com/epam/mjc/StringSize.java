@@ -15,13 +15,4 @@ public class StringSize implements Function<List<String>, Map<String, Integer>> 
         return result;
     }
 
-    @Override
-    public <V> Function<V, Map<String, Integer>> compose(Function<? super V, ? extends List<String>> before) {
-        return Function.super.compose(before);
-    }
-
-    @Override
-    public <V> Function<List<String>, V> andThen(Function<? super Map<String, Integer>, ? extends V> after) {
-        return Function.super.andThen(after);
-    }
 }
